@@ -10,3 +10,24 @@
     * Überschrift der 2. Ordnung (## Überschrift)
     * Aufzählung mit Einrückung (* Aufzählung)
 * Issuefür die Erstellung einer HTML Seite erstellt
+
+
+## 16.11.2021
+
+* HTML- Grundgerüst in vsc erstelle "html:5"
+* Title in HTML einbauen
+* Schließende Tags haben einen führenden "/"
+*Überschrift in HTML erstellt: <h1>....<h2>
+* Absätze in HTML: <p>
+
+
+## 19.11.2021
+* Kommentar in HTML einfügen <!--Ich bin cool--> Kommentare werden vom Browser nicht interpretiert
+* Repository mit Github synchronisieren in einem mehrschriittigen Prozess:
+    1. DATEI Autospeichern einschalten bzw. auf Speichern klicken
+    2. In VSC auf das Git Symbol in der linken Leisten. Die Anzahl der
+     anstehenden Änderungen werden in einem blauen Kreis angezeigt
+    3. Eine Nachricht zu den vorgenommenen Änderungen des Quelltextes eintippen. Dann *Commit* -Haken klicken
+    4. Pull und Push auslösen,indem auf das Rädchen bzw. die Wolke ganz unten geklickt wird
+
+* 
