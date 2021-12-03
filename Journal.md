@@ -30,4 +30,21 @@
     3. Eine Nachricht zu den vorgenommenen Änderungen des Quelltextes eintippen. Dann *Commit* -Haken klicken
     4. Pull und Push auslösen,indem auf das Rädchen bzw. die Wolke ganz unten geklickt wird
 
-* 
+
+## 26.11.2021
+
+## 30.11.2021
+* Am anfang der Stunde wird eigener webserver im terminal gestartet.Der Befehl
+wird mt der Pfeiltaste "Nach Oben" angezeigt und ausgeführt
+* Im Brwoser wird der Inhalt über die Adresse ````localhost:3000```` aufgerufen
+* Der localhost ist der eigene Rechner
+* Mit dem Befehl ````ipconfig````wird die eigene IP-Adresse angezeigt.Die eigene
+IP-Adresse ist im Netzwerk eindeutig.
+
+
+## 3.12.2021
+* Schriftart ändern mit CSS 
+* Html-grundgerüst ertsellt
+* Button erstellen
+* Style einfügen über styles.css datei
+* Geschweifte Klammer mit alt Gr 7 erstellen
