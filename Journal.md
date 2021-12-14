@@ -48,3 +48,10 @@ IP-Adresse ist im Netzwerk eindeutig.
 * Button erstellen
 * Style einfügen über styles.css datei
 * Geschweifte Klammer mit alt Gr 7 erstellen
+
+## 14.22.2021
+ * Bild einfügen
+ * unterschied zwischen png und jpg
+ * Alt-Tag beim bild verstehen 
+ * Hyperlink eibauen mit <a href....><a> in neuen tag
+ * Target beim hyperlink verstehen _blank öffnet
