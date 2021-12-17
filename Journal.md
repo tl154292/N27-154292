@@ -54,4 +54,4 @@ IP-Adresse ist im Netzwerk eindeutig.
  * unterschied zwischen png und jpg
  * Alt-Tag beim bild verstehen 
  * Hyperlink eibauen mit <a href....><a> in neuen tag
- * Target beim hyperlink verstehen _blank öffnet
+ * Target beim hyperlink verstehen _blank öffnet i neuen Tab

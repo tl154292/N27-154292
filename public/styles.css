@@ -1,14 +1,12 @@
 
     body {
         font-family: Arial, Helvetica, sans-serif;
-        color: rgb(222, 135, 193);
+        color:white;
         background-color: powderblue;
-        background-image: url('Hintergrund3.jpg');
-
-        div {
-            font: 100;
-       
+        background-image: url('hintergrundbild2.png');
 
     }
         
-      
+        ul {
+            list-style: square inside url("icon1.png");
+          }
