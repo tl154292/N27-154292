@@ -1,3 +1,37 @@
+//Programme verarbeiten oft Objekte der realen Welt.
+//Objekte haben eigenschaften.
+//In unserem Bankingprogramm interessieren uns Objekte,
+// wie z.B. Kunde,Konto,Filliale,Bankautomat
+//Alle Kunden unserer Bank haben die selben Eigenschaften,aber
+//unterschiedliche Eigenshaftswerte
+
+
+class Kunde{
+    constructor(){
+        this.IdKunde
+        this.Nachname
+        this.Vorname
+        this.Kennwort
+        this.Kontostand
+        this.Geburtsdatum
+        this.Mail
+
+    }
+}
+
+//Von der Kunden-Klasse wird eine konkrete Instanz gebildet.
+
+let kunde = new Kunde()
+
+//Die konkrete Instanz bekommt Eigenschaftswerte zugewiesen.
+
+kunde.IdKunde = 154292
+kunde.Nachname = "lalomico"
+kunde.Vorname = "Leonardo"
+kunde.Geburtsdatum = "01.02.2001"
+kunde.Kennwort = "223344"
+kunde.Mail = "leonardo@web.de"
+
 const express = require('express')
 const bodyParser = require('body-parser')
 const meineApp = express()
@@ -12,6 +46,20 @@ const server = meineApp.listen(process.env.PORT || 3000, () => {
 
 meineApp.get('/',(browserAnfrage, serverAntwort, next) => {              
     serverAntwort.render('index.ejs', {})          
+})
+
+meineApp.post('/login',(browserAnfrage, serverAntwort, next) => { 
+    const idKunde = browserAnfrage.body.IdKunde  
+    const kennwort = browserAnfrage.body.Kennwort  
+    
+    console.log("ID des Kunden: " + idKunde)
+    console.log("Kennwort des Kunden: " + kennwort)
+
+    if(idKunde == kunde.idKunde){
+        serverAntwort.render('index.ejs', {})
+    }
+
+    serverAntwort.render('login.ejs', {})        
 })
 
 // Wenn die login-Seite im Browser aufgerufen wird, ...
@@ -30,3 +78,5 @@ meineApp.get('/login',(browserAnfrage, serverAntwort, next) => {
 meineApp.post('/login',(browserAnfrage, serverAntwort, next) => {              
     serverAntwort.render('index.ejs', {})          
 })
+
+
