@@ -14,6 +14,7 @@ class Kunde{
         this.Kontostand
         this.Geburtsdatum
         this.Mail
+        this.Telefonnummer
     }
 }
 
@@ -27,10 +28,11 @@ let kunde = new Kunde()
 
 kunde.IdKunde = 154292
 kunde.Nachname = "Teme"
-kunde.Vorname = "lena"
+kunde.Vorname = "Lena"
 kunde.Geburtsdatum = "23.09.2005"
 kunde.Mail = "lena@web.de"
 kunde.Kennwort = "223344"
+kunde.Telefonnummer = "01523846793"
 
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -137,3 +139,13 @@ meineApp.get('/about',(browserAnfrage, serverAntwort, next) => {
 
 // require('./Uebungen/ifUndElse.js')
 require('./Uebungen/klasseUndObjekt.js')
+
+
+meineApp.get('/profil',(browserAnfrage, serverAntwort, next) => {              
+    serverAntwort.render('profil.ejs', {
+        Vorname: kunde.Vorname, 
+        Nachname: kunde.Nachname, 
+        Mail: kunde.Mail,
+        Telefonnummer: kunde.Telefonnummer
+    })  
+})

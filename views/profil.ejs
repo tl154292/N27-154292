@@ -12,7 +12,7 @@
 <body>
     <div class="rahmen">
         <div class="kopf">
-            <h1>Willkommen bei der N27</h1>            
+            <h1>Mein Profil</h1>            
         </div>
         <div class="navigationsleiste">
           <a href="/">  <i class="fa fa-home fa-2x" aria-hidden="true"></i></a>--
@@ -20,24 +20,31 @@
             <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
 
         </a>--
+        
         <a href="/profil"><i class="fa fa-user fa-2x" aria-hidden="true"></i> </a>--
 
             <a href="/login"><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
         </div>
         <div class="inhaltsbereich">
          
-            <h2>WIR</h2> 
-            <p>N27 Bank AG</p>
-           <h2>Hauptsitz</h2> 
-           <p>Hamburg</p>
-           <p>Lembeckerstraße 187</p>
-           <p>E-mail:bank.hh@gmail.com</p>
-           <p>Telefon:02345 22567</p>
-           <p>Bankleitzahl: 27 000 000</p>
-           <h2>Geschäftsführer</h2>
-           <p>Lena Temmi</p>
+            <h2>Ihr Profil</h2>
             
 
+                    <form method="post">
+                        <label for="fname">Vorname</label><br>
+                        <input type="text" name="Vorname" readonly value=<%= Vorname%> <br>
+                        <label for="fname">Nachname</label><br>
+                        <input type="text" name="Nachname" readonly value=<%= Nachname%> <br>
+                        <label for="lname">E-mail</label><br>
+                        <input type="email" name="E-mail" value=<%= Mail%> <br>        
+                        <label for="lname">Telefonnummer</label><br>
+                        <input type="tel" name="Telefonnummer" value=<%= Telefonnummer%> <br>        
+                       
+                        <button class="login" formaction="/login">Änderung speichern</button>
+                    </form> 
+
+              
+ 
 
         </div>
         <div class="fusszeile">
