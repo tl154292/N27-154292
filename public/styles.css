@@ -78,7 +78,17 @@
     font-size: 2vh;  
     color: red;
   }
-    
+  .erfolgsmeldung {
+    width: 80%;
+    margin-bottom: 10px;
+    margin-right: 10%;
+    margin-left: 10%;  
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2vh;  
+    color: rgba(94, 228, 76, 0.829);
+  }
+      
+
   .divii {
     border-radius: 5px;
     background-color: #f2f2f2;
