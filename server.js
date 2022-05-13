@@ -16,12 +16,7 @@ class Kunde{
         this.Rufnummer
     }
 }
-
-// Von der Kunden-Klasse wird eine konkrete Instanz gebildet. 
-
 let kunde = new Kunde()
-
-// Die konkrete Instanz bekommt Eigenschaftswerte zugewiesen.
 
 kunde.IdKunde = 154292
 kunde.Nachname = "Teme"
@@ -31,10 +26,60 @@ kunde.Mail = "lena.teme@web.de"
 kunde.Kennwort = "223344"
 kunde.Rufnummer = "01523867524"
 
+class Kundenberater{
+    constructor(){
+        this.IdKundenberater
+        this.Nachname
+        this.Vorname
+        this.Kennwort
+        this.Kontostand
+        this.Geburtsdatum
+        this.Mail
+        this.Rufnummer
+        this.Begruessung
+}
+
+}
+// Von der Kunden-Klasse wird eine konkrete Instanz gebildet. 
+
+let kundenberater = new Kundenberater()
+
+// Die konkrete Instanz bekommt Eigenschaftswerte zugewiesen.
+
+kundenberater.IdKunde = 1534343
+kundenberater.Nachname = "Klöpi"
+kundenberater.Vorname = "Hannah"
+kundenberater.Geburtsdatum = "23.10.2000"
+kundenberater.Mail = "hannah.klöpi@web.de"
+kundenberater.Kennwort = "223344"
+kundenberater.Rufnummer = "01523867524"
+kundenberater.Begruessung = "Hallo, ich bin dein Kundenberater"
+kundenberater.Position = "Master of desaster"
+
+class Konto{
+    constructor(){
+        this.Kontostand
+        this.IBAN
+        this.Kontoart
+        this.Pin
+    }
+}
+//Instanzzierung eines Objekts namens koto vom typ konto
+
+let konto = new Konto()
+
+konto.Kontostand = 1000
+konto.IBAN ="DE614238463"
+konto.Kontoart = "Sparbuch"
+konto.Pin = 234
+
+
+
 const express = require('express')
 const bodyParser = require('body-parser')
 const meineApp = express()
 const cookieParser = require('cookie-parser')
+const { TIS620_BIN } = require('mysql/lib/protocol/constants/charsets')
 meineApp.set('view engine', 'ejs')
 meineApp.use(express.static('public'))
 meineApp.use(bodyParser.urlencoded({extended: true}))
@@ -127,14 +172,25 @@ meineApp.get('/login',(browserAnfrage, serverAntwort, next) => {
     })          
 })
 
-// Die meineApp.post('login') wird ausgeführt, sobald der Button
-// auf dem Login-Formular gedrückt wird.
+// Wenn die about-Seite angesurft wird, wird die about-seite zum Browser zurückgegeben
 
 
 meineApp.get('/about',(browserAnfrage, serverAntwort, next) => {              
 
-    serverAntwort.render('about.ejs', {
-    })          
+    if(browserAnfrage.signedCookies['istAngemeldetAls']){
+        
+        // Die Index-Seite wird an den Browser gegeben:
+
+        serverAntwort.render('about.ejs',{})
+    }else{
+
+        // Wenn der Kunde noch nicht eigeloggt ist, soll
+        // die Loginseite an den Browser zurückgegeben werden.
+        serverAntwort.render('login.ejs', {
+            meldung : ""
+        })
+    } 
+           
 })
 
 meineApp.get('/profil',(browserAnfrage, serverAntwort, next) => {              
@@ -148,6 +204,21 @@ meineApp.get('/profil',(browserAnfrage, serverAntwort, next) => {
         Erfolgsmeldung: ""
     })          
 })
+
+meineApp.get('/support',(browserAnfrage, serverAntwort, next) => {              
+
+    serverAntwort.render('support.ejs', {
+        Vorname: kundenberater.Vorname,
+        Nachname: kundenberater.Nachname,
+        Mail: kundenberater.Mail,
+        Rufnummer: kundenberater.Rufnummer,
+        Kennwort: kundenberater.Kennwort,
+        Begruessung: kundenberater.Begruessung,
+        Position: kundenberater.Position
+      
+    })          
+})
+
 
 // Sobald der Speichern-Button auf der Profil-Seite gedrückt wird,
 // wird die meineApp.post('profil'...) abgearbeitet.
@@ -210,5 +281,24 @@ if(kunde.Rufnummer != browserAnfrage.body.Rufnummer){
 })
 
 
-// require('./Uebungen/ifUndElse.js')
-// require('./Uebungen/klasseUndObjekt.js')
+meineApp.get('/kontostandAnzeigen',(browserAnfrage, serverAntwort, next) => {              
+
+    if(browserAnfrage.signedCookies['istAngemeldetAls']){
+        
+        // Die Index-Seite wird an den Browser gegeben:
+
+        serverAntwort.render('kontostandAnzeigen.ejs',{})
+    }else{
+
+        // Wenn der Kunde noch nicht eigeloggt ist, soll
+        // die Loginseite an den Browser zurückgegeben werden.
+        serverAntwort.render('login.ejs', {
+            meldung : ""
+        })
+    } 
+           
+})
+
+require('./Uebungen/ifUndElse.js')
+require('./Uebungen/klasseUndObjekt.js')
+

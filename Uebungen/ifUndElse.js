@@ -97,7 +97,7 @@ if(lebensmittel){
 // Erkenntnisgewinn: Wenn der Ausdruck (hier: lebensmittel) true oder false ist,
 //ist kein Vergleichsoperator (== oder ===) notwendig
 
-console.log("Übung 78- Prüfung ist immer tru")
+console.log("Übung 7- Prüfung ist immer true")
 
 if(true) {
     console.log("Diese Prüfung ist immer wahr")
