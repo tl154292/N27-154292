@@ -58,6 +58,7 @@ kundenberater.Position = "Master of desaster"
 
 class Konto{
     constructor(){
+        
         this.Kontostand
         this.IBAN
         this.Kontoart
@@ -65,13 +66,43 @@ class Konto{
     }
 }
 //Instanzzierung eines Objekts namens koto vom typ konto
+//"let konto" bedeutet, dass ein Objekt namens Konto existieren soll.MAn sagt,
+// das kontonwird deklariert.
+
+//"=new Konto()" nennt man Die Inastziierung. Bei der Instaziierung wird Festplatten-
+// speicher reserviert, um bei der anschließendnen Initiarisierung konkrete Eigen-
+//schaftswerte für das Objekt zu speichern
 
 let konto = new Konto()
+
+//Die Klasse KOnto ist der Bauplan für alle konto-objekte
+//In der Klasse werden alle relevanten Eigenschaften definiert
+//Die konto-Objekte, die aus dieser Klasse erzeugt werden, haben die selben
+//Eigenschaten, aber unterschiedliche Eigenschaften
 
 konto.Kontostand = 1000
 konto.IBAN ="DE614238463"
 konto.Kontoart = "Sparbuch"
 konto.Pin = 234
+
+
+class Kredit{
+    constructor(){
+        this.Zinssatz
+        this.Laufzeit
+        this.Betrag
+    }
+
+    //eine Funktion berechnet etwas. Im Namen der Funktion steht also immer ein Verb.
+    
+    berechneGesamtkostenKreditNachEinemJahr(){
+        return this.Betrag * this.Zinssatz / 100 + this.Betrag
+    }
+}
+    
+
+
+
 
 
 
@@ -280,6 +311,8 @@ if(kunde.Rufnummer != browserAnfrage.body.Rufnummer){
     })
 })
 
+// sobald der Button "Kontostand anzeigen" auf der IdnexSeite gedrückt wird,
+// wird meine App.get ('/KontostandAnzeigen'-Funktion abgearbeitet)
 
 meineApp.get('/kontostandAnzeigen',(browserAnfrage, serverAntwort, next) => {              
 
@@ -287,7 +320,12 @@ meineApp.get('/kontostandAnzeigen',(browserAnfrage, serverAntwort, next) => {
         
         // Die Index-Seite wird an den Browser gegeben:
 
-        serverAntwort.render('kontostandAnzeigen.ejs',{})
+        serverAntwort.render('kontostandAnzeigen.ejs',{
+            Kontostand: konto.Kontostand,
+            IBAN: konto.IBAN,
+            Kontoart: konto.Kontoart,
+            Erfolgsmeldung: ""
+        })
     }else{
 
         // Wenn der Kunde noch nicht eigeloggt ist, soll
@@ -299,6 +337,23 @@ meineApp.get('/kontostandAnzeigen',(browserAnfrage, serverAntwort, next) => {
            
 })
 
+meineApp.get('/kreditRechnen',(browserAnfrage, serverAntwort, next) => {              
+
+    if(browserAnfrage.signedCookies['istAngemeldetAls']){
+        
+        // Die Index-Seite wird an den Browser gegeben:
+
+        serverAntwort.render('kreditRechnen.ejs',{})
+    }else{
+
+        // Wenn der Kunde noch nicht eigeloggt ist, soll
+        // die Loginseite an den Browser zurückgegeben werden.
+        serverAntwort.render('login.ejs', {
+            meldung : ""
+        })
+    } 
+           
+})
 //require('./Uebungen/ifUndElse.js')
 //require('./Uebungen/klasseUndObjekt.js')
 require('./Uebungen/klausur.js')
