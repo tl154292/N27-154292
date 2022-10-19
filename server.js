@@ -354,8 +354,8 @@ meineApp.get('/kreditRechnen',(browserAnfrage, serverAntwort, next) => {
     } 
            
 })
-//require('./Uebungen/ifUndElse.js')
+require('./Uebungen/ifUndElse.js')
 //require('./Uebungen/klasseUndObjekt.js')
-require('./Uebungen/klausur.js')
+require('./Klausur/20221026_Klausur.js')
 
 
