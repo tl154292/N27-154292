@@ -88,3 +88,6 @@ console.log("Aufgabe 5")
 // Die Formel für die monatliche Zinsbelastung lautet: 
 // Zinsen pro Monat = (Kreditbetrag x Zinssatz) ÷ (100 x 12)
 // Formulieren Sie auf Papier den "Issue" und dazu 10 sinnvolle Tasks
+
+
+
