@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,18 +7,18 @@
     <link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>N27- Kredit berechnen</title>
+    <title>N27 - Konto anlegen</title>
 </head>
 <body>
     <div class="rahmen">
         <div class="kopf">
-            <h1>Kredit berechnen</h1>            
+            <h1>N27 - Konto anlegen</h1>
         </div>
         <div class="navigationsleiste">            
             <a href="/">
                 <i class="fa fa-home fa-2x" aria-hidden="true" title="Willkommen"></i>
             </a> --
-            <a href="/profil">
+            <a href="/profile">
                 <i class="fa fa-user fa-2x" aria-hidden="true" title="Mein Profil"></i>
             </a>   --
             <a href="/about">
@@ -33,18 +33,17 @@
         </div>
         <div class="inhaltsbereich">
             <form method="post">
-            <label>Gewünschter Kreditbetrag:</label><br>
-            <input type="number" name="Betrag" value=<%= Betrag %> ><br>        
-            <label>Gewünschte Laufzeit:</label><br>
-            <input type="number" name="Laufzeit" value=<%= Laufzeit %>  ><br>
-            <label>Gewünschter Zinssatz:</label><br>
-            <input type="number" name="Zinssatz" value=<%= Zinssatz %> ><br>        
-            
-        </form>
-        <p class="erfolgsmeldung"><%=Erfolgsmeldung%></p> 
+                <label for="kontoArt">Kontoart wählen:</label><br>
+                <select id="kontoArt" name="kontoArt">
+                    <option value="girokonto">Girokonto</option>
+                    <option value="sparkonto">Sparkonto</option>                
+                </select>
+                <button class="login" formaction="/kontoAnlegen">Neues Konto anlegen</button>
+            </form>
+            <p class="erfolg"> <%= Erfolgsmeldung %></p>
         </div>
         <div class="fusszeile">
-            &copy; 2022 GW21A
+            &copy; 2023 GW21A
         </div>
     </div>
 </body>
